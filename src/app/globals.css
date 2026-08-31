@@ -1,12 +1,110 @@
+@import "@fontsource-variable/fraunces/standard.css";
+@import "@fontsource-variable/inter/standard.css";
+@import "@fontsource/noto-sans-kr/400.css";
+@import "@fontsource/noto-sans-kr/500.css";
+@import "@fontsource/noto-sans-kr/700.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html, body {
+:root {
+  /* Neutrals: warm, fabric-toned canvas */
+  --color-canvas: #faf6ef;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f2ebe0;
+  --color-ink: #191b26;
+  --color-ink-muted: #5d5f6e;
+  --color-border: #e4dccc;
+  --color-border-strong: #cfc3ab;
+
+  /* Primary: deep indigo navy, drawn from the shop's own signage */
+  --color-navy: #1f2a4a;
+  --color-navy-dark: #12182c;
+  --color-navy-light: #38456c;
+
+  /* Primary 2 / accent: warm terracotta, evokes the natural fiber and beechwood modal story */
+  --color-clay: #bd6a3d;
+  --color-clay-dark: #9a5330;
+  --color-clay-light: #e0a679;
+
+  /* Supplemental */
+  --color-wheat: #d9a854;
+  --color-sage: #7c8a6e;
+
+  --font-display: "Fraunces Variable", Georgia, serif;
+  --font-sans: "Inter Variable", system-ui, -apple-system, sans-serif;
+  --font-kr: "Noto Sans KR", "Inter Variable", system-ui, sans-serif;
+}
+
+html,
+body {
   padding: 0;
   margin: 0;
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+[data-lang="ko"] body {
+  font-family: var(--font-kr);
+}
+
+[data-lang="ko"] .font-display {
+  font-family: var(--font-kr);
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scroll-reveal primitive: content is visible by default (so it degrades
+   gracefully if JS never runs). A tiny blocking script in layout.tsx adds
+   `js` to <html> before first paint; only then does CSS hide [data-reveal]
+   elements until the Reveal component flips data-revealed via
+   IntersectionObserver. */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.js [data-reveal][data-revealed="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Focus visibility, kept consistent site-wide */
+:focus-visible {
+  outline: 2px solid var(--color-clay);
+  outline-offset: 3px;
 }
