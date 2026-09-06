@@ -14,17 +14,26 @@ export default function AboutView() {
 
   return (
     <>
-      {/* Constrained editorial hero, deliberately quieter than the homepage's dark hero */}
-      <Section tone="surface" padding="banner">
-        <Container className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-end lg:gap-16">
-          <div>
-            <Eyebrow>{t.hero.eyebrow}</Eyebrow>
-            <h1 className="mt-4 max-w-2xl font-display text-4xl font-semibold leading-[1.1] text-ink sm:text-5xl">
+      {/* Full-width hero: distinctive page opening */}
+      <Section
+        tone="navy"
+        padding="none"
+        className="relative overflow-hidden"
+        style={{
+          backgroundImage: "url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1440 600%22%3E%3Crect fill=%22%231f2a4a%22 width=%221440%22 height=%22600%22/%3E%3C/svg%3E')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/90 to-navy/80" aria-hidden="true" />
+        <Container className="relative z-10 flex min-h-[450px] flex-col justify-center sm:min-h-[550px]">
+          <div className="max-w-2xl">
+            <Eyebrow className="text-clay">{t.hero.eyebrow}</Eyebrow>
+            <h1 className="mt-6 font-display text-5xl font-semibold leading-[1.05] text-white sm:text-6xl">
               {t.hero.title}
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-muted">{t.hero.body}</p>
+            <p className="mt-8 max-w-lg text-lg leading-relaxed text-white/80 sm:text-xl">{t.hero.body}</p>
           </div>
-          <FoldStack className="hidden h-40 w-full max-w-[180px] justify-self-end lg:block" tone="warm" />
         </Container>
       </Section>
 

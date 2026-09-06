@@ -1,4 +1,4 @@
-import type { ElementType, ReactNode } from "react"
+import type { ElementType, ReactNode, CSSProperties } from "react"
 
 export function Container({
   children,
@@ -37,6 +37,7 @@ export function Section({
   padding = "default",
   as: Tag = "section",
   id,
+  style,
 }: {
   children: ReactNode
   className?: string
@@ -44,9 +45,10 @@ export function Section({
   padding?: SectionPadding
   as?: ElementType
   id?: string
+  style?: CSSProperties
 }) {
   return (
-    <Tag id={id} className={`${toneClasses[tone]} ${paddingClasses[padding]} ${className}`}>
+    <Tag id={id} style={style} className={`${toneClasses[tone]} ${paddingClasses[padding]} ${className}`}>
       {children}
     </Tag>
   )

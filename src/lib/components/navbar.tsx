@@ -43,18 +43,28 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b bg-canvas/95 backdrop-blur transition-shadow duration-250 ${
-        scrolled ? "border-border-strong shadow-subtle" : "border-border"
+      className={`sticky top-0 z-50 border-b transition-all duration-300 ${
+        scrolled
+          ? "border-border-strong bg-canvas/98 shadow-subtle backdrop-blur"
+          : "border-transparent bg-transparent"
       }`}
     >
       <div className="mx-auto flex w-full max-w-content items-center justify-between px-5 py-4 sm:px-8">
-        <Link href="/" className="flex flex-col leading-tight">
-          <span className="font-display text-xl font-semibold text-navy sm:text-2xl">
-            {business.name}
-          </span>
-          {lang === "ko" && (
-            <span className="font-kr text-xs text-ink-muted">{business.nameKo}</span>
-          )}
+        <Link href="/" className="flex items-center gap-3 leading-tight">
+          {/* Logo placeholder: simple icon */}
+          <div className="flex h-8 w-8 flex-col justify-center gap-0.5 rounded-sm">
+            <div className="h-0.5 w-full bg-clay" />
+            <div className="h-0.5 w-2/3 bg-clay" />
+            <div className="h-0.5 w-4/5 bg-clay" />
+          </div>
+          <div className="flex flex-col leading-tight">
+            <span className={`font-display text-lg font-semibold sm:text-xl ${scrolled ? "text-navy" : "text-white drop-shadow-md"}`}>
+              {business.name}
+            </span>
+            {lang === "ko" && (
+              <span className={`text-xs ${scrolled ? "text-ink-muted" : "text-white/70 drop-shadow-sm"}`}>{business.nameKo}</span>
+            )}
+          </div>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
@@ -65,7 +75,13 @@ export default function Navbar() {
                 key={route.href}
                 href={route.href}
                 className={`text-sm font-medium transition-colors duration-250 ${
-                  active ? "text-navy" : "text-ink-muted hover:text-navy"
+                  scrolled
+                    ? active
+                      ? "text-navy"
+                      : "text-ink-muted hover:text-navy"
+                    : active
+                      ? "text-white drop-shadow-sm"
+                      : "text-white/80 drop-shadow-sm hover:text-white"
                 }`}
                 aria-current={active ? "page" : undefined}
               >
@@ -76,10 +92,14 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-4 md:flex">
-          <LanguageToggle />
+          <LanguageToggle scrolled={scrolled} />
           <a
             href={business.phoneHref}
-            className="rounded bg-navy px-5 py-2.5 text-sm font-medium text-white transition-colors duration-250 hover:bg-navy-dark"
+            className={`rounded px-5 py-2.5 text-sm font-medium transition-all duration-250 ${
+              scrolled
+                ? "bg-navy text-white hover:bg-navy-dark"
+                : "border border-white/40 text-white drop-shadow-sm hover:bg-white/10"
+            }`}
           >
             {t.call}
           </a>

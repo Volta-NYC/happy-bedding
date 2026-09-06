@@ -50,13 +50,26 @@ export default function VisitView() {
 
   return (
     <>
-      <Section tone="surface" padding="banner">
-        <Container className="max-w-3xl">
-          <Eyebrow>{t.hero.eyebrow}</Eyebrow>
-          <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.1] text-ink sm:text-5xl">
-            {t.hero.title}
-          </h1>
-          <p className="mt-6 text-lg leading-relaxed text-ink-muted">{t.hero.body}</p>
+      {/* Full-width hero */}
+      <Section
+        tone="navy"
+        padding="none"
+        className="relative overflow-hidden"
+        style={{
+          backgroundImage: "url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1440 600%22%3E%3Crect fill=%22%231f2a4a%22 width=%221440%22 height=%22600%22/%3E%3C/svg%3E')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/90 to-navy/75" aria-hidden="true" />
+        <Container className="relative z-10 flex min-h-[400px] flex-col justify-center sm:min-h-[500px]">
+          <div className="max-w-2xl">
+            <Eyebrow className="text-clay">{t.hero.eyebrow}</Eyebrow>
+            <h1 className="mt-6 font-display text-5xl font-semibold leading-[1.05] text-white sm:text-6xl">
+              {t.hero.title}
+            </h1>
+            <p className="mt-8 max-w-lg text-lg leading-relaxed text-white/80 sm:text-xl">{t.hero.body}</p>
+          </div>
         </Container>
       </Section>
 
