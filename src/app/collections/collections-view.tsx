@@ -28,7 +28,7 @@ export default function CollectionsView() {
         padding="none"
         className="relative overflow-hidden"
         style={{
-          backgroundImage: "url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1440 600%22%3E%3Crect fill=%22%231f2a4a%22 width=%221440%22 height=%22600%22/%3E%3C/svg%3E')",
+          backgroundImage: "url('/images/hero.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
