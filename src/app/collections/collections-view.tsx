@@ -8,15 +8,9 @@ import { ButtonLink } from "@/lib/components/button"
 import Reveal from "@/lib/components/reveal"
 import FoldStack from "@/lib/components/fold-stack"
 
-const lifestyleGoods = {
-  en: ["Hats", "Bags", "Aprons", "Umbrellas", "Cushions"],
-  ko: ["모자", "가방", "앞치마", "우산", "방석"],
-} as const
-
 export default function CollectionsView() {
   const { lang } = useLanguage()
   const t = collections[lang]
-  const goods = lifestyleGoods[lang]
 
   const [modal, seasonal, lifestyle] = t.sections
 
@@ -33,7 +27,11 @@ export default function CollectionsView() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/90 to-navy/75" aria-hidden="true" />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(90deg, rgba(18, 24, 44, 0.98) 0%, rgba(31, 42, 74, 0.92) 56%, rgba(31, 42, 74, 0.72) 100%)" }}
+          aria-hidden="true"
+        />
         <Container className="relative z-10 flex min-h-[450px] flex-col justify-center sm:min-h-[550px]">
           <div className="max-w-2xl">
             <Eyebrow className="text-clay">{t.hero.eyebrow}</Eyebrow>
@@ -83,32 +81,19 @@ export default function CollectionsView() {
         </Container>
       </Section>
 
-      {/* Section 3: Korean Lifestyle Goods, list/tag treatment instead of another split */}
+      {/* Section 3: Korean Lifestyle Goods */}
       <Section tone="surface" id="lifestyle">
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-            <Reveal>
-              <Eyebrow>{lifestyle.eyebrow}</Eyebrow>
-              <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">{lifestyle.title}</h2>
-              <div className="mt-5 max-w-xl space-y-4 text-base leading-relaxed text-ink-muted">
-                {lifestyle.paragraphs.map((p) => (
-                  <p key={p}>{p}</p>
-                ))}
-              </div>
-              <p className="mt-6 border-l-2 border-sage pl-4 text-sm italic text-ink-muted">{lifestyle.note}</p>
-            </Reveal>
-            <Reveal delay={100} className="flex flex-wrap content-start gap-3 lg:pt-2">
-              {goods.map((item, i) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-border-strong px-4 py-2 text-sm font-medium text-ink"
-                  style={{ marginTop: i % 2 === 0 ? 0 : "1.25rem" }}
-                >
-                  {item}
-                </span>
+        <Container className="max-w-3xl">
+          <Reveal>
+            <Eyebrow>{lifestyle.eyebrow}</Eyebrow>
+            <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">{lifestyle.title}</h2>
+            <div className="mt-5 max-w-xl space-y-4 text-base leading-relaxed text-ink-muted">
+              {lifestyle.paragraphs.map((p) => (
+                <p key={p}>{p}</p>
               ))}
-            </Reveal>
-          </div>
+            </div>
+            <p className="mt-6 border-l-2 border-sage pl-4 text-sm italic text-ink-muted">{lifestyle.note}</p>
+          </Reveal>
         </Container>
       </Section>
 

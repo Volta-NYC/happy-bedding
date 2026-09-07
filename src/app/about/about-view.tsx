@@ -25,7 +25,11 @@ export default function AboutView() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/90 to-navy/80" aria-hidden="true" />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(90deg, rgba(18, 24, 44, 0.98) 0%, rgba(31, 42, 74, 0.92) 56%, rgba(31, 42, 74, 0.76) 100%)" }}
+          aria-hidden="true"
+        />
         <Container className="relative z-10 flex min-h-[450px] flex-col justify-center sm:min-h-[550px]">
           <div className="max-w-2xl">
             <Eyebrow className="text-clay">{t.hero.eyebrow}</Eyebrow>

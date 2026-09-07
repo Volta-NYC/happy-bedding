@@ -30,12 +30,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex min-h-screen flex-col font-sans">
-        {/* Runs before first paint so scroll-reveal styling (globals.css)
-            only applies once JS is confirmed working; without it, every
-            [data-reveal] section stays fully visible. */}
-        <script
-          dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }}
-        />
         <LanguageProvider>
           <a
             href="#main-content"

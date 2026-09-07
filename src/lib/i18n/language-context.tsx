@@ -61,6 +61,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const lang = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 
   useEffect(() => {
+    document.documentElement.classList.add("js")
+  }, [])
+
+  useEffect(() => {
     document.documentElement.lang = lang === "ko" ? "ko" : "en"
     document.documentElement.dataset.lang = lang
   }, [lang])

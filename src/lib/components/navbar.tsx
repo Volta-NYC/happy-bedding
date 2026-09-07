@@ -45,8 +45,8 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-50 border-b transition-all duration-300 ${
         scrolled
-          ? "border-border-strong bg-canvas/98 shadow-subtle backdrop-blur"
-          : "border-white/15 bg-navy/90 shadow-lg backdrop-blur-md"
+          ? "border-border-strong bg-canvas shadow-subtle backdrop-blur"
+          : "border-white/20 bg-[#17203b] shadow-lg backdrop-blur-md"
       }`}
     >
       <div className="mx-auto flex w-full max-w-content items-center justify-between px-5 py-4 sm:px-8">
@@ -107,7 +107,7 @@ export default function Navbar() {
         <button
           type="button"
           className={`flex items-center justify-center rounded border p-2 md:hidden ${
-            scrolled ? "border-border-strong text-ink" : "border-white/40 bg-navy/80 text-white"
+            scrolled ? "border-border-strong text-ink" : "border-white/40 text-white"
           }`}
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"

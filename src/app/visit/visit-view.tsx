@@ -34,18 +34,6 @@ export default function VisitView() {
       cta: t.phone.cta,
       href: business.phoneHref,
     },
-    {
-      title: t.delivery.title,
-      body: t.delivery.body,
-      cta: null,
-      href: null,
-    },
-    {
-      title: t.reviews.title,
-      body: t.reviews.body,
-      cta: t.reviews.cta,
-      href: business.googleReviewUrl,
-    },
   ]
 
   return (
@@ -61,7 +49,11 @@ export default function VisitView() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/90 to-navy/75" aria-hidden="true" />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(90deg, rgba(18, 24, 44, 0.98) 0%, rgba(31, 42, 74, 0.92) 56%, rgba(31, 42, 74, 0.72) 100%)" }}
+          aria-hidden="true"
+        />
         <Container className="relative z-10 flex min-h-[400px] flex-col justify-center sm:min-h-[500px]">
           <div className="max-w-2xl">
             <Eyebrow className="text-clay">{t.hero.eyebrow}</Eyebrow>
@@ -102,8 +94,8 @@ export default function VisitView() {
         </Container>
       </Section>
 
-      <Section tone="canvas" padding="none" className="pb-16 sm:pb-20">
-        <Container className="max-w-2xl border-t border-border-strong pt-8 text-center sm:text-left">
+      <Section tone="canvas" padding="none" className="pb-12 sm:pb-16">
+        <Container className="max-w-2xl border-t border-border-strong pt-7 text-center sm:text-left">
           <p className="text-base leading-relaxed text-ink-muted">{t.note}</p>
         </Container>
       </Section>

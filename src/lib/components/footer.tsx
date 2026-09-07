@@ -4,7 +4,6 @@ import Link from "next/link"
 import { business, navRoutes } from "@/lib/content/business"
 import { useLanguage } from "@/lib/i18n/language-context"
 import { nav, footer as footerDict } from "@/lib/i18n/dictionaries/shared"
-import FoldStack from "@/lib/components/fold-stack"
 
 export default function Footer() {
   const { lang } = useLanguage()
@@ -21,71 +20,55 @@ export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-navy text-white">
       <div className="mx-auto w-full max-w-content px-5 py-12 sm:px-8 sm:py-16">
-        {/* Main footer content */}
-        <div className="grid gap-10 sm:gap-12 lg:grid-cols-[1.4fr_0.8fr_1fr]">
-          {/* Brand section */}
-          <div>
-            <div className="flex items-end gap-2">
-              <div className="flex flex-col gap-0.5">
-                <div className="h-0.75 w-3 bg-clay" />
-                <div className="h-0.75 w-2 bg-clay" />
-                <div className="h-0.75 w-2.5 bg-clay" />
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <div className="border-l-2 border-clay pl-5 sm:pl-6">
+            <div className="flex items-center gap-3">
+              <div className="flex h-9 w-10 flex-col justify-center gap-1 border border-white/20 px-1.5" aria-hidden="true">
+                <span className="h-0.5 w-full bg-clay-light" />
+                <span className="h-0.5 w-3/4 self-end bg-wheat" />
+                <span className="h-0.5 w-5/6 bg-clay" />
               </div>
               <div>
-                <p className="font-display text-lg font-semibold leading-tight">{business.name}</p>
+                <p className="font-display text-xl font-semibold leading-tight">{business.name}</p>
                 <p className="font-kr text-xs text-white/60">{business.nameKo}</p>
               </div>
             </div>
-            <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">{t.tagline}</p>
+            <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/70">{t.tagline}</p>
           </div>
 
-          {/* Quick links */}
-          <nav>
-            <p className="text-xs font-medium uppercase tracking-wider text-white/40 mb-4">{t.pagesHeading}</p>
-            <ul className="space-y-2">
-              {navRoutes.map((route) => (
-                <li key={route.href}>
-                  <Link href={route.href} className="text-sm text-white/70 hover:text-white transition-colors">
-                    {labels[route.key]}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <div className="grid gap-8 border-t border-white/15 pt-8 sm:grid-cols-2 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
+            <nav>
+              <p className="mb-4 text-xs font-medium uppercase tracking-wider text-white/40">{t.pagesHeading}</p>
+              <ul className="grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-1">
+                {navRoutes.map((route) => (
+                  <li key={route.href}>
+                    <Link href={route.href} className="text-sm text-white/70 transition-colors hover:text-white">
+                      {labels[route.key]}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-          {/* Contact info */}
-          <div>
-            <p className="text-xs font-medium uppercase tracking-wider text-white/40 mb-4">{t.contactHeading}</p>
-            <ul className="space-y-2.5 text-sm text-white/70">
-              <li>
-                <a href={business.phoneHref} className="hover:text-white transition-colors">
-                  {business.phoneDisplay}
-                </a>
-              </li>
-              <li className="text-xs leading-relaxed">
+            <div>
+              <p className="mb-4 text-xs font-medium uppercase tracking-wider text-white/40">{t.contactHeading}</p>
+              <a href={business.phoneHref} className="font-display text-xl font-semibold text-white transition-colors hover:text-wheat">
+                {business.phoneDisplay}
+              </a>
+              <p className="mt-3 text-xs leading-relaxed text-white/65">
                 {business.address.line1}
                 <br />
                 {business.address.line2}
-              </li>
-              <li className="flex flex-col gap-1.5 pt-1">
-                <a
-                  href={business.address.mapsUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-xs hover:text-white transition-colors"
-                >
+              </p>
+              <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-xs">
+                <a href={business.address.mapsUrl} target="_blank" rel="noreferrer" className="text-wheat transition-colors hover:text-white">
                   {t.directions}
                 </a>
-                <a
-                  href={business.googleReviewUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-xs hover:text-white transition-colors"
-                >
+                <a href={business.googleReviewUrl} target="_blank" rel="noreferrer" className="text-wheat transition-colors hover:text-white">
                   {t.reviews}
                 </a>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
 

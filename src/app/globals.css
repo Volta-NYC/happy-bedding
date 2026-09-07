@@ -1,5 +1,6 @@
 @import "@fontsource-variable/fraunces/standard.css";
 @import "@fontsource-variable/inter/standard.css";
+@import "@fontsource-variable/manrope/wght.css";
 @import "@fontsource/noto-sans-kr/400.css";
 @import "@fontsource/noto-sans-kr/500.css";
 @import "@fontsource/noto-sans-kr/700.css";
@@ -32,7 +33,7 @@
   --color-wheat: #d9a854;
   --color-sage: #7c8a6e;
 
-  --font-display: "Fraunces Variable", Georgia, serif;
+  --font-display: "Manrope Variable", "Inter Variable", system-ui, sans-serif;
   --font-sans: "Inter Variable", system-ui, -apple-system, sans-serif;
   --font-kr: "Noto Sans KR", "Inter Variable", system-ui, sans-serif;
 }
