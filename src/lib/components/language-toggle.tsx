@@ -23,7 +23,7 @@ export default function LanguageToggle({ className = "", scrolled = false }: { c
         /
       </span>
       <span className={scrolled ? (lang === "ko" ? "text-navy" : "text-ink-muted") : lang === "ko" ? "text-white" : "text-white/60"}>
-        KO
+        한
       </span>
     </button>
   )
