@@ -46,16 +46,15 @@ export default function Navbar() {
       className={`sticky top-0 z-50 border-b transition-all duration-300 ${
         scrolled
           ? "border-border-strong bg-canvas/98 shadow-subtle backdrop-blur"
-          : "border-transparent bg-transparent"
+          : "border-white/15 bg-navy/90 shadow-lg backdrop-blur-md"
       }`}
     >
       <div className="mx-auto flex w-full max-w-content items-center justify-between px-5 py-4 sm:px-8">
         <Link href="/" className="flex items-center gap-3 leading-tight">
-          {/* Logo placeholder: simple icon */}
-          <div className="flex h-8 w-8 flex-col justify-center gap-0.5 rounded-sm">
-            <div className="h-0.5 w-full bg-clay" />
-            <div className="h-0.5 w-2/3 bg-clay" />
-            <div className="h-0.5 w-4/5 bg-clay" />
+          <div className="flex h-8 w-9 flex-col justify-center gap-1 rounded-sm border border-current/15 px-1.5" aria-hidden="true">
+            <div className="h-0.5 w-full bg-clay-light" />
+            <div className="h-0.5 w-3/4 self-end bg-wheat" />
+            <div className="h-0.5 w-5/6 bg-clay" />
           </div>
           <div className="flex flex-col leading-tight">
             <span className={`font-display text-lg font-semibold sm:text-xl ${scrolled ? "text-navy" : "text-white drop-shadow-md"}`}>
@@ -74,14 +73,14 @@ export default function Navbar() {
               <Link
                 key={route.href}
                 href={route.href}
-                className={`text-sm font-medium transition-colors duration-250 ${
+                className={`relative text-sm font-medium transition-colors duration-250 after:absolute after:-bottom-2 after:left-0 after:h-px after:w-full after:origin-left after:bg-clay-light after:transition-transform after:duration-250 ${
                   scrolled
                     ? active
-                      ? "text-navy"
-                      : "text-ink-muted hover:text-navy"
+                      ? "text-navy after:scale-x-100"
+                      : "text-ink-muted after:scale-x-0 hover:text-navy hover:after:scale-x-100"
                     : active
-                      ? "text-white drop-shadow-sm"
-                      : "text-white/80 drop-shadow-sm hover:text-white"
+                      ? "text-white after:scale-x-100"
+                      : "text-white/85 after:scale-x-0 hover:text-white hover:after:scale-x-100"
                 }`}
                 aria-current={active ? "page" : undefined}
               >
@@ -107,7 +106,9 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="flex items-center justify-center rounded border border-border-strong p-2 text-ink md:hidden"
+          className={`flex items-center justify-center rounded border p-2 md:hidden ${
+            scrolled ? "border-border-strong text-ink" : "border-white/40 bg-navy/80 text-white"
+          }`}
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
           aria-label={menuOpen ? t.close : t.menu}
@@ -146,7 +147,7 @@ export default function Navbar() {
               )
             })}
             <div className="mt-3 flex items-center gap-3 px-2">
-              <LanguageToggle />
+              <LanguageToggle scrolled />
             </div>
             <a
               href={business.phoneHref}

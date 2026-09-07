@@ -30,14 +30,14 @@ export default function HomeView() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/85 to-navy/75" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/[0.98] via-navy/[0.92] to-navy/[0.72]" aria-hidden="true" />
         <Container className="relative z-10 flex min-h-[500px] flex-col justify-center sm:min-h-[600px] lg:min-h-[700px]">
           <div className="max-w-2xl">
             <Eyebrow className="text-wheat">{t.hero.eyebrow}</Eyebrow>
             <h1 className="mt-6 font-display text-5xl font-semibold leading-[1.05] text-white sm:text-6xl lg:text-[4.5rem]">
               {t.hero.title}
             </h1>
-            <p className="mt-8 max-w-lg font-display text-xl font-medium leading-relaxed text-wheat sm:text-2xl">
+            <p className="mt-8 max-w-lg text-xl font-medium leading-relaxed text-white/95 sm:text-2xl">
               {t.hero.body}
             </p>
             <div className="mt-10 flex flex-wrap gap-4 sm:mt-12">
@@ -109,8 +109,7 @@ export default function HomeView() {
               <Reveal key={item.title} delay={(i + 1) * 90}>
                 <Link
                   href="/collections"
-                  className="group flex h-full flex-col justify-end rounded-lg border border-border bg-surface p-8 transition-colors duration-250 hover:border-navy"
-                  style={{ minHeight: "220px" }}
+                  className="group flex min-h-[164px] h-full flex-col justify-end rounded-lg border border-border bg-surface p-6 transition-colors duration-250 hover:border-navy sm:p-7"
                 >
                   <span className="text-xs font-medium uppercase tracking-[0.14em] text-clay">{item.title}</span>
                   <p className="mt-3 text-base leading-relaxed text-ink-muted">{item.body}</p>

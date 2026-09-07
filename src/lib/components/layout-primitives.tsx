@@ -22,7 +22,7 @@ const toneClasses: Record<SectionTone, string> = {
 type SectionPadding = "default" | "hero" | "banner" | "compact" | "tight" | "none"
 
 const paddingClasses: Record<SectionPadding, string> = {
-  default: "py-20 sm:py-28",
+  default: "py-16 sm:py-20",
   hero: "py-16 sm:py-20 lg:py-24",
   banner: "py-16 sm:py-20",
   compact: "py-14 sm:py-16",
