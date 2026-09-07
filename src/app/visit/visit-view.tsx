@@ -65,7 +65,7 @@ export default function VisitView() {
         </Container>
       </Section>
 
-      <Section tone="canvas" padding="none" className="pb-16 sm:pb-20">
+      <Section tone="canvas" padding="none" className="pb-16 pt-12 sm:pb-20 sm:pt-16">
         <Container className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start lg:gap-14">
           <Reveal className="overflow-hidden rounded-lg border border-border-strong">
             <iframe

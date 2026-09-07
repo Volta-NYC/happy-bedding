@@ -46,7 +46,7 @@ export default function CollectionsView() {
 
       {/* Section 1: Eco-Modal & Allergy Care, flagship, dark banner treatment */}
       <Section tone="navy" id="modal">
-        <Container className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+        <Container className="grid items-center gap-12 sm:gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <Reveal>
             <Eyebrow className="text-wheat">{modal.eyebrow}</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-semibold text-white sm:text-4xl">{modal.title}</h2>
@@ -57,17 +57,17 @@ export default function CollectionsView() {
             </div>
             <p className="mt-6 border-l-2 border-clay-light pl-4 text-sm italic text-white/70">{modal.note}</p>
           </Reveal>
-          <Reveal delay={100}>
-            <FoldStack className="mx-auto h-auto w-full max-w-xs" tone="warm" />
+          <Reveal delay={100} className="flex w-full justify-center overflow-hidden px-3 sm:px-0 lg:overflow-visible">
+            <FoldStack className="h-auto w-full max-w-[14rem] sm:max-w-xs" tone="warm" />
           </Reveal>
         </Container>
       </Section>
 
       {/* Section 2: Four-Season & Hotel Bedding, reversed, light */}
       <Section tone="canvas" id="seasonal">
-        <Container className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <Reveal className="order-first lg:order-first">
-            <FoldStack className="mx-auto h-auto w-full max-w-xs rotate-180" tone="warm" />
+        <Container className="grid items-center gap-12 sm:gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <Reveal className="order-last flex w-full justify-center overflow-hidden px-3 sm:px-0 lg:order-first lg:overflow-visible">
+            <FoldStack className="h-auto w-full max-w-[14rem] rotate-180 sm:max-w-xs" tone="warm" />
           </Reveal>
           <Reveal delay={100}>
             <Eyebrow>{seasonal.eyebrow}</Eyebrow>

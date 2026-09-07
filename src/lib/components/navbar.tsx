@@ -8,6 +8,23 @@ import { useLanguage } from "@/lib/i18n/language-context"
 import { nav } from "@/lib/i18n/dictionaries/shared"
 import LanguageToggle from "@/lib/components/language-toggle"
 
+function KoreanWordmark({ scrolled }: { scrolled: boolean }) {
+  return (
+    <span
+      aria-label={business.nameKo}
+      className="inline-flex items-center gap-1 font-kr text-xs font-bold tracking-[0.08em]"
+    >
+      <span className={scrolled ? "text-clay" : "text-wheat"}>행복한</span>
+      <span className="text-sage">이불집</span>
+      <span className="relative ml-1 inline-flex h-3 w-3" aria-hidden="true">
+        <i className="absolute left-0 top-1 h-1 w-1 rounded-full bg-clay" />
+        <i className="absolute right-0 top-0 h-1.5 w-1.5 rounded-full bg-wheat" />
+        <i className="absolute bottom-0 right-0.5 h-1 w-1 rounded-full bg-sage" />
+      </span>
+    </span>
+  )
+}
+
 export default function Navbar() {
   const { lang } = useLanguage()
   const t = nav[lang]
@@ -51,17 +68,19 @@ export default function Navbar() {
     >
       <div className="mx-auto flex w-full max-w-content items-center justify-between px-5 py-4 sm:px-8">
         <Link href="/" className="flex items-center gap-3 leading-tight">
-          <div className="flex h-8 w-9 flex-col justify-center gap-1 rounded-sm border border-current/15 px-1.5" aria-hidden="true">
+          <div className="relative flex h-8 w-9 flex-col justify-center gap-1 rounded-sm border border-current/15 px-1.5" aria-hidden="true">
             <div className="h-0.5 w-full bg-clay-light" />
             <div className="h-0.5 w-3/4 self-end bg-wheat" />
             <div className="h-0.5 w-5/6 bg-clay" />
+            <span className="absolute -right-1 -top-1 h-1.5 w-1.5 rounded-full bg-wheat" />
+            <span className="absolute -bottom-1 -left-1 h-1 w-1 rounded-full bg-clay-light" />
           </div>
           <div className="flex flex-col leading-tight">
             <span className={`font-display text-lg font-semibold sm:text-xl ${scrolled ? "text-navy" : "text-white drop-shadow-md"}`}>
               {business.name}
             </span>
             {lang === "ko" && (
-              <span className={`text-xs ${scrolled ? "text-ink-muted" : "text-white/70 drop-shadow-sm"}`}>{business.nameKo}</span>
+              <KoreanWordmark scrolled={scrolled} />
             )}
           </div>
         </Link>

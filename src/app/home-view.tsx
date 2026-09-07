@@ -143,13 +143,21 @@ export default function HomeView() {
       <Section tone="surface" padding="compact">
         <Container className="grid items-center gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12">
           <Reveal>
-            <div className="flex items-baseline gap-3">
+            <div className="flex items-start gap-4">
               <span className="font-display text-7xl font-semibold text-clay sm:text-8xl">
-                {business.yearsInBusiness}
+                3
               </span>
-              <span className="max-w-[9rem] text-xs font-medium uppercase leading-tight tracking-[0.1em] text-ink-muted">
-                {lang === "en" ? "years serving Flushing" : "년간 플러싱과 함께"}
-              </span>
+              <div className="pt-2">
+                <p className="max-w-[13rem] text-xs font-medium uppercase leading-tight tracking-[0.1em] text-ink-muted">
+                  {lang === "en" ? "Regions our regulars drive in from" : "단골 고객님들이 찾아오시는 지역"}
+                </p>
+                <p className="mt-2 text-sm font-medium text-ink">
+                  {lang === "en" ? "NJ, Long Island, Manhattan" : "뉴저지, 롱아일랜드, 맨해튼"}
+                </p>
+                <p className="mt-1 text-xs italic text-clay">
+                  {lang === "en" ? "Worth the trip." : "찾아올 만한 가치가 있습니다."}
+                </p>
+              </div>
             </div>
           </Reveal>
           <Reveal delay={100}>
