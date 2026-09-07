@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { useLanguage } from "@/lib/i18n/language-context"
 import { home } from "@/lib/i18n/dictionaries/home"
@@ -87,20 +88,32 @@ export default function HomeView() {
             </Link>
           </div>
 
-          <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
-            <Reveal className="lg:row-span-2">
+          <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2 lg:items-start">
+            <Reveal>
               <Link
                 href="/collections"
-                className="group flex h-full flex-col justify-end overflow-hidden rounded-lg bg-navy p-8 text-white transition-colors duration-250 hover:bg-navy-dark sm:p-10"
+                className="group relative flex h-full flex-col justify-end overflow-hidden rounded-lg bg-navy p-8 text-white transition-colors duration-250 hover:bg-navy-dark sm:p-10"
                 style={{ minHeight: "360px" }}
               >
-                <span className="text-xs font-medium uppercase tracking-[0.14em] text-wheat">
+                <Image
+                  src="/images/store-interior-shelves.jpg"
+                  alt="Shelves of bedding inside Happy Bedding"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-600 group-hover:scale-105"
+                />
+                <span
+                  className="absolute inset-0"
+                  style={{ background: "linear-gradient(180deg, rgba(18, 24, 44, 0.25) 0%, rgba(18, 24, 44, 0.94) 100%)" }}
+                  aria-hidden="true"
+                />
+                <span className="relative text-xs font-medium uppercase tracking-[0.14em] text-wheat">
                   {t.collectionsPreview.items[0].title}
                 </span>
-                <p className="mt-3 max-w-sm text-lg leading-relaxed text-white/85">
+                <span className="relative mt-3 max-w-sm text-lg leading-relaxed text-white/90">
                   {t.collectionsPreview.items[0].body}
-                </p>
-                <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-white">
+                </span>
+                <span className="relative mt-6 inline-flex items-center gap-2 text-sm font-medium text-white">
                   {c.seeCollections}
                   <span aria-hidden="true" className="transition-transform duration-250 group-hover:translate-x-1">
                     →
@@ -109,17 +122,19 @@ export default function HomeView() {
               </Link>
             </Reveal>
 
-            {t.collectionsPreview.items.slice(1).map((item, i) => (
-              <Reveal key={item.title} delay={(i + 1) * 90}>
-                <Link
-                  href="/collections"
-                  className="group flex min-h-[164px] h-full flex-col justify-end rounded-lg border border-border bg-surface p-6 transition-colors duration-250 hover:border-navy sm:p-7"
-                >
-                  <span className="text-xs font-medium uppercase tracking-[0.14em] text-clay">{item.title}</span>
-                  <p className="mt-3 text-base leading-relaxed text-ink-muted">{item.body}</p>
-                </Link>
-              </Reveal>
-            ))}
+            <div className="grid content-center gap-4 lg:min-h-[360px]">
+              {t.collectionsPreview.items.slice(1).map((item, i) => (
+                <Reveal key={item.title} delay={(i + 1) * 90}>
+                  <Link
+                    href="/collections"
+                    className="group flex flex-col justify-end rounded-lg border border-border bg-surface p-6 transition-colors duration-250 hover:border-navy sm:p-7"
+                  >
+                    <span className="text-xs font-medium uppercase tracking-[0.14em] text-clay">{item.title}</span>
+                    <span className="mt-3 text-base leading-relaxed text-ink-muted">{item.body}</span>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </Container>
       </Section>

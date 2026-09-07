@@ -51,7 +51,7 @@ export default function VisitView() {
       >
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(90deg, rgba(18, 24, 44, 0.98) 0%, rgba(31, 42, 74, 0.92) 56%, rgba(31, 42, 74, 0.72) 100%)" }}
+          style={{ background: "linear-gradient(90deg, rgba(18, 24, 44, 0.82) 0%, rgba(31, 42, 74, 0.58) 52%, rgba(31, 42, 74, 0.18) 100%)" }}
           aria-hidden="true"
         />
         <Container className="relative z-10 flex min-h-[400px] flex-col justify-center sm:min-h-[500px]">

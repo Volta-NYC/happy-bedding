@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useLanguage } from "@/lib/i18n/language-context"
 import { about } from "@/lib/i18n/dictionaries/about"
 import { business } from "@/lib/content/business"
@@ -27,7 +28,7 @@ export default function AboutView() {
       >
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(90deg, rgba(18, 24, 44, 0.98) 0%, rgba(31, 42, 74, 0.92) 56%, rgba(31, 42, 74, 0.76) 100%)" }}
+          style={{ background: "linear-gradient(90deg, rgba(18, 24, 44, 0.82) 0%, rgba(31, 42, 74, 0.58) 52%, rgba(31, 42, 74, 0.18) 100%)" }}
           aria-hidden="true"
         />
         <Container className="relative z-10 flex min-h-[450px] flex-col justify-center sm:min-h-[550px]">
@@ -69,7 +70,15 @@ export default function AboutView() {
             </div>
           </Reveal>
           <Reveal delay={100} className="order-first lg:order-last">
-            <FoldStack className="mx-auto h-auto w-full max-w-xs" tone="warm" />
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border-strong bg-surface-alt shadow-card">
+              <Image
+                src="/images/store-interior-shelves.jpg"
+                alt="Inside Happy Bedding, with shelves of folded comforters and bedding"
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover"
+              />
+            </div>
           </Reveal>
         </Container>
       </Section>
