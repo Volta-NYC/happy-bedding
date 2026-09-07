@@ -94,12 +94,15 @@ export default function Navbar() {
           <LanguageToggle scrolled={scrolled} />
           <a
             href={business.phoneHref}
-            className={`rounded px-5 py-2.5 text-sm font-medium transition-all duration-250 ${
+            className={`inline-flex items-center gap-2 rounded px-5 py-2.5 text-sm font-medium transition-all duration-250 ${
               scrolled
                 ? "bg-navy text-white hover:bg-navy-dark"
                 : "border border-white/40 text-white drop-shadow-sm hover:bg-white/10"
             }`}
           >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.65 2.63a2 2 0 0 1-.45 2.11L8.04 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.31 1.73.53 2.63.65A2 2 0 0 1 22 16.9Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
             {t.call}
           </a>
         </div>
@@ -151,9 +154,12 @@ export default function Navbar() {
             </div>
             <a
               href={business.phoneHref}
-              className="mt-3 rounded bg-navy px-5 py-3 text-center text-sm font-medium text-white"
+              className="mt-3 inline-flex items-center justify-center gap-2 rounded bg-navy px-5 py-3 text-center text-sm font-medium text-white"
               onClick={() => setMenuOpen(false)}
             >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.65 2.63a2 2 0 0 1-.45 2.11L8.04 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.31 1.73.53 2.63.65A2 2 0 0 1 22 16.9Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
               {t.call}
             </a>
           </nav>
